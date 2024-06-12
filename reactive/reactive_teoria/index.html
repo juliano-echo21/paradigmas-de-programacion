@@ -178,13 +178,13 @@
 
                     <h4>Actores</h4>
 
-                    <p><b>Flujo de datos:</b> Son datos que se van modificando cada cierto tiempo, y que puede tener interés observar en tiempo real.</p>
+                    <p><b>Flujo de datos:</b> Son datos que se van modificando cada cierto tiempo, y que puede tener interés observar en tiempo real. A diferencia de los procesos por lotes, donde los datos se recopilan y procesan en bloques, el data streaming permite la ingestión y procesamiento continuo de datos a medida que estos se generan.</p>
                     <p><b>Observable:</b> Un componente que puede ser observado, y que se encargará de informar cuando ese flujo de datos se modifique.</p>
                     <p><b>Observador:</b> Es el elemento que observa esas modificaciones. Cuando el dato se modifica, se notifica al componente que lo está utilizando.
                         Normalmente este observer necesita suscribirse cuando quiere empezar a recibir datos, y desuscribirse cuando ya no le interesan más esos datos.
                     </p>
                     <p><b>Dispatchers:</b> En cada framework de programación reactiva se llaman de una forma distinta, pero básicamente son un conjunto de hilos donde se van a ejecutar las operaciones, y unas reglas que optimizan su uso para ser lo más eficientes posibles.</p>
-                    <p><b>Operadores:</b> Existen montones de operadores que nos permiten modificar y combinar flujos de datos, y conocerlos todos es muy complicado. Dependen de las librerías.</p>
+                    <p><b>Operadores:</b> Son funciones que se aplican a streams de datos haciendo uso de la programación funcional. Implementan soluciones a problemas comunes en el procesamiento de streams como agregar, filtrar, mapear. Existen montones de operadores que nos permiten modificar y combinar flujos de datos, y conocerlos todos es muy complicado. Dependen de las librerías.</p>
 
                     <hr>
 
@@ -301,6 +301,8 @@
                     <p>Se pueden dar situaciones donde un Notificador genere más elementos de los que un Suscriptor puede consumir. Lo cual genera que el proceso de convertir esa entrada en salida se resista de alguna manera. En la mayoría de los casos esa resistencia es la velocidad de cálculo.</p>
 
                     <p>Para manejar estas situaciones en la programación reactiva se han establecido los siguientes mecanismos: Los suscriptores pueden indicar el número de datos que quieren o pueden procesar, de manera que el notificador nunca les enviará más de n cantidad de elementos. Los notificadores pueden aplicar diferentes operaciones como buffers o descartar algunos datos, para evitar saturar a los suscriptores lentos.</p>
+
+                    <p>Backpressure es una solución que implementa el modelo Pull o el patrón de diseño Iterador. Así, hoy día la programación reactiva implementa dos patrones de diseño : Observer e Iterador</p>
                     
                     <h4>Implementación</h4>
 
